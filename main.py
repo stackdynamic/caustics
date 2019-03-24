@@ -14,7 +14,7 @@ water_depth = -5
 intensity_multiplier = 10
 scale = 8
 impact_range = 0
-N = 10
+N = 8
 frequency = []
 direction = []
 W = []
@@ -31,10 +31,10 @@ for i in range(N):
 k = 6 / 5
 
 fps = 30
-length = 10000
+length = 3
 height = 1024  # Height of the image in pixels
 width = height  # Width of the image in pixels
-frame_count = 1 # fps * length // 1000
+frame_count = fps * length
 
 GenerateCaustic = wave.GenerateCaustic
 Process = multiprocessing.Process
