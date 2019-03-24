@@ -12,20 +12,21 @@ import math
 
 water_depth = -5
 intensity_multiplier = 10
-scale = 10
+scale = 8
 impact_range = 0
-N = 6
+N = 10
 frequency = []
 direction = []
 W = []
 amplitude = []
 steepness = []
+random.seed(1234)
 for i in range(N):
     frequency.append(random.uniform(0.001, 0.25))
     angle = random.uniform(0, math.pi * 2)
     direction.append(normalize(np.array([math.cos(angle), math.sin(angle)])))
     W.append(random.uniform(0.25, 0.75))
-    amplitude.append(random.uniform(0.5, 2))
+    amplitude.append(random.uniform(0.5, 1.5))
     steepness.append(random.uniform(0.25, 0.5))
 k = 6 / 5
 
