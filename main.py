@@ -6,27 +6,34 @@ import wave
 from util import normalize
 import time
 import multiprocessing
+import random
+import math
 
 
 water_depth = -5
-intensity_multiplier = 5
-scale = 120
+intensity_multiplier = 10
+scale = 10
 impact_range = 0
-N = 2
-frequency = [0.01, 0.02, 0.05]
-W = [1 / 4, 4 / 9, 9 / 16]
-direction = [normalize(np.array([-1, -1 / 4])),
-             normalize(np.array([1, 1])),
-             normalize(np.array([1, 1 / 16]))]
-amplitude = [4, 9 / 4, 16 / 9]
-steepness = [0.3, 0.4, 0.5]
+N = 6
+frequency = []
+direction = []
+W = []
+amplitude = []
+steepness = []
+for i in range(N):
+    frequency.append(random.uniform(0.001, 0.25))
+    angle = random.uniform(0, math.pi * 2)
+    direction.append(normalize(np.array([math.cos(angle), math.sin(angle)])))
+    W.append(random.uniform(0.25, 0.75))
+    amplitude.append(random.uniform(0.5, 2))
+    steepness.append(random.uniform(0.25, 0.5))
 k = 6 / 5
 
-fps = 24
-length = 15000
-height = 2048  # Height of the image in pixels
+fps = 30
+length = 10000
+height = 1024  # Height of the image in pixels
 width = height  # Width of the image in pixels
-frame_count = fps * length // 1000
+frame_count = 1 # fps * length // 1000
 
 GenerateCaustic = wave.GenerateCaustic
 Process = multiprocessing.Process

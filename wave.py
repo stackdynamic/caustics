@@ -34,6 +34,7 @@ def pd(point, data, time):
         y += data.direction[i][1] * pd_comp
     x *= -2
     y *= -2
+
     return x, y
 
 
